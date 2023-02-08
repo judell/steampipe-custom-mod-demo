@@ -1,5 +1,5 @@
 dashboard "test" {
-  tite = "Unused / Orphaned VPC Security Groups"
+  title = "Unused / Orphaned VPC Security Groups"
   container {
     card {
       sql = <<-EOQ
