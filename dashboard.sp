@@ -13,7 +13,7 @@ dashboard "test" {
   }
   table {
     sql = <<EOQ
-      select 'Hello world' as greeting
+      select 'Hello world v0.1' as greeting
     EOQ
   }
   
