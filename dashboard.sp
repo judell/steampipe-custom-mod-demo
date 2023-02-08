@@ -16,7 +16,7 @@ from
   parilux.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null
+  a.sg_id is null and s.group_name != 'default' 
 EOQ
       width = 2
     }
@@ -35,7 +35,7 @@ from
   fosprod.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null
+  a.sg_id is null and s.group_name != 'default' 
 EOQ
       width = 2
     }
@@ -60,7 +60,7 @@ from
   parilux.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null
+  a.sg_id is null and s.group_name != 'default' 
     EOQ
   }
   table {
@@ -83,7 +83,7 @@ from
   fosprod.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null
+  a.sg_id is null and s.group_name != 'default' 
     EOQ
   }
 }
