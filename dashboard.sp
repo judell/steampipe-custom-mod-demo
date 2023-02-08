@@ -16,7 +16,7 @@ from
   parilux.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null and s.group_name != 'default' 
+  a.sg_id is null
 EOQ
       width = 2
     }
@@ -35,7 +35,7 @@ from
   fosprod.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null and s.group_name != 'default' 
+  a.sg_id is null
 EOQ
       width = 2
     }
@@ -52,6 +52,8 @@ with associated_sg as (
     jsonb_array_elements(groups) as sg
 )
 select
+  s.group_name,
+  s.description,
   s.arn,
   s.vpc_id,
   s.region,
@@ -60,7 +62,7 @@ from
   parilux.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null and s.group_name != 'default' 
+  a.sg_id is null
     EOQ
   }
   table {
@@ -75,6 +77,8 @@ with associated_sg as (
     jsonb_array_elements(groups) as sg
 )
 select
+  s.group_name,
+  s.description,
   s.arn,
   s.vpc_id,
   s.region,
@@ -83,7 +87,7 @@ from
   fosprod.aws_vpc_security_group s
   left join associated_sg a on s.group_id = a.sg_id
 where
-  a.sg_id is null and s.group_name != 'default' 
+  a.sg_id is null
     EOQ
   }
 }
